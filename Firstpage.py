@@ -1,5 +1,10 @@
-def greet(name):
-    print(f"Hello, {name}!")
+from flask import Flask
 
-greet("World")
-greet("World")
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "<h1>Hello from Docker + Flask!</h1>"
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
